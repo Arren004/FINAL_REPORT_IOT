@@ -3,7 +3,7 @@
 #include <FirebaseESP32.h>
 
 // Khai báo cảm biến DHT11
-const int PINDHT = 12;
+const int PINDHT = 4;
 #define DHTTYPE DHT11
 DHT dht(PINDHT, DHTTYPE);
 
@@ -13,9 +13,9 @@ DHT dht(PINDHT, DHTTYPE);
 
 // Khai báo LED
 #define LED_door 2
-#define BUZZER_GAS 0
-#define LED_fan 4
-#define LED_light 16
+#define BUZZER_GAS 12
+#define LED_fan 21
+#define LED_light 32
 
 // Cấu hình Firebase
 #define FIREBASE_HOST "tt-iot-d4f71-default-rtdb.firebaseio.com"

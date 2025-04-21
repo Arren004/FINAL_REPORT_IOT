@@ -12,10 +12,10 @@ DHT dht(PINDHT, DHTTYPE);
 #define MQ2_D 23
 
 // Khai báo LED
-#define LED_door 2
+#define LED_door 32
 #define BUZZER_GAS 12
 #define LED_fan 21
-#define LED_light 32
+#define LED_light 2
 
 // Cấu hình Firebase
 #define FIREBASE_HOST "tt-iot-d4f71-default-rtdb.firebaseio.com"

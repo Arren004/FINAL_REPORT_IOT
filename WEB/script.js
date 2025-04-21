@@ -96,7 +96,7 @@ btn6.addEventListener('click', ()=>{
 const TEMP_THRESHOLD = 35; // Ngưỡng nhiệt độ cảnh báo (có thể điều chỉnh)
 const HUMIDITY_THRESHOLD_HIGH = 70; // Ngưỡng độ ẩm cao
 const HUMIDITY_THRESHOLD_LOW = 30;  // Ngưỡng độ ẩm thấp
-const GAS_THRESHOLD = 50;           // Ngưỡng khí gas (PM2.5)
+const GAS_THRESHOLD = 800;           // Ngưỡng khí gas (PM2.5)
 
 // Hàm kiểm tra và cảnh báo nhiệt độ
 function checkTemperature(temp) {

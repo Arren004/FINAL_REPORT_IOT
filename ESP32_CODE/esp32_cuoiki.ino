@@ -3,7 +3,7 @@
 #include <FirebaseESP32.h>
 
 // Khai báo cảm biến DHT11
-const int PINDHT = 4;
+const int PINDHT = 12;
 #define DHTTYPE DHT11
 DHT dht(PINDHT, DHTTYPE);
 
@@ -13,13 +13,13 @@ DHT dht(PINDHT, DHTTYPE);
 
 // Khai báo LED
 #define LED_door 2
-#define LED_GAS 0
-#define LED_fan 32
-#define LED_light 21
+#define BUZZER_GAS 0
+#define LED_fan 4
+#define LED_light 16
 
 // Cấu hình Firebase
-#define FIREBASE_HOST "quanghuy-901bc-default-rtdb.firebaseio.com"
-#define FIREBASE_AUTH "sA11umgf9FCGB0Y6vutxQh8fs3wV9qzQJ7kae8UU"
+#define FIREBASE_HOST "tt-iot-d4f71-default-rtdb.firebaseio.com"
+#define FIREBASE_AUTH "wicmah7GnZAy9PZO0sN6H32VjKr4EfOsZUUqJ8kT"
 FirebaseData fbdb;
 FirebaseAuth auth;
 FirebaseConfig config;
@@ -32,7 +32,7 @@ void setup() {
     Serial.begin(9600);
     dht.begin(); // Khởi động cảm biến DHT11
 
-    pinMode(LED_GAS, OUTPUT);
+    pinMode(BUZZER_GAS, OUTPUT);
     pinMode(LED_door, OUTPUT);
     pinMode(LED_fan, OUTPUT);
     pinMode(LED_light, OUTPUT);
@@ -89,7 +89,7 @@ if (isnan(humi) || isnan(temp)) {
     Firebase.setInt(fbdb, "/Coso_IOT/Digital_Value", digitalValue);
 
     // Bật LED khi phát hiện khí gas
-    digitalWrite(LED_GAS, analogValue > 1000 ? HIGH : LOW);
+    digitalWrite(BUZZER_GAS, analogValue > 1000 ? HIGH : LOW);
 
     // Kiểm tra điều khiển LED từ Firebase
     if (Firebase.getInt(fbdb, "/thietbi1/door")) {
